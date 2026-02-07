@@ -1,0 +1,11 @@
+1. Jakiego typu dane bioinformatyczne przetwarzam hobbystycznie lub w pracy zawodowej?
+Przetwarzam głównie dane genomowe pochodzące z sekwencjonowania DNA, takie jak pliki FASTQ i FASTA, wykorzystywane w podstawowych analizach genomowych.
+
+2. Jakiego typu dane chciał(a)bym się nauczyć przetwarzać – dlaczego?
+Chciał(a)bym nauczyć się przetwarzania danych transkryptomicznych pochodzących z sekwencjonowania RNA (RNA-seq), ponieważ umożliwiają one analizę ekspresji genów i lepsze zrozumienie procesów zachodzących w komórce.
+
+3. Która platforma wydaje się najbardziej odpowiednia do analizy danych bioinformatycznych i dlaczego?
+Najbardziej odpowiednia wydaje się platforma Microsoft Azure, ze względu na wsparcie dla obliczeń wysokowydajnych (Azure CycleCloud, Azure Batch), integrację z workflow bioinformatycznymi (Nextflow, Cromwell) oraz rozbudowane mechanizmy zgodności z regulacjami (RODO, HIPAA).
+
+4. Jakie konkretne narzędzia lub usługi chciał(a)bym przetestować w swoim projekcie? Dlaczego?
+Chciał(a)bym przetestować Azure CycleCloud, Azure Batch, Nextflow, Genomics Notebooks (Jupyter, Python/R) oraz Azure Blob Storage, ponieważ umożliwiają one skalowalne, bezpieczne i efektywne przetwarzanie danych genomowych i transkryptomicznych w chmurze.

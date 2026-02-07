@@ -1,0 +1,1 @@
+Dane zostały pobrane z publicznego repozytorium NCBI Sequence Read Archive (SRA), prowadzonego przez National Center for Biotechnology Information. Baza ta gromadzi surowe i przetworzone dane z eksperymentów sekwencjonowania wysokoprzepustowego, udostępniane badaczom na całym świecie.
