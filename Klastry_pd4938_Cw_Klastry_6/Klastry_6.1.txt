@@ -1,0 +1,41 @@
+1. Dlaczego wynik jest prawie zawsze inny niż 0? Jaki rodzaj błędu występuje?
+
+Wynik jest różny od 0, ponieważ występuje warunek wyścigu (race condition).
+
+Operacje:
+
+counter += 1
+counter -= 1
+
+
+nie są atomowe. W rzeczywistości składają się z kilku kroków:
+
+Odczyt wartości zmiennej,
+
+Modyfikacja,
+
+Zapis nowej wartości.
+
+Jeśli dwa wątki wykonują te operacje jednocześnie, mogą nadpisać swoje wyniki, co powoduje utratę części operacji.
+
+To klasyczny błąd współbieżności – błąd synchronizacji dostępu do zasobu współdzielonego.
+
+2. Które fragmenty kodu powinny być chronione?
+
+Chroniony powinien być krytyczny fragment sekcji, czyli operacja modyfikacji wspólnej zmiennej:
+
+counter += 1
+counter -= 1
+
+
+To właśnie dostęp do współdzielonego zasobu (counter) wymaga synchronizacji.
+
+3. Czy wystarczy użyć jednej, wspólnej blokady dla obu funkcji?
+
+Wystarczy jedna wspólna blokada (Lock), ponieważ:
+
+Chronimy ten sam zasób (counter)
+
+Sekcja krytyczna dotyczy tej samej zmiennej globalnej
+
+Obie funkcje muszą używać tej samej instancji blokady, aby zapewnić wzajemne wykluczanie (mutual exclusion).

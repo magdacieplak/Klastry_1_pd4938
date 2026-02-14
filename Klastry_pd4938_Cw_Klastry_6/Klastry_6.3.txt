@@ -1,0 +1,27 @@
+1.Czym jest deadlock?
+
+Deadlock to sytuacja, w której dwa lub więcej wątków wzajemnie blokują się, czekając na zasób, który jest zajęty przez inny z nich.
+
+2.Dlaczego w tym przykładzie występuje zakleszczenie?
+
+Ponieważ:
+
+wątki blokują zasoby w różnej kolejności,
+
+każdy czeka na zasób trzymany przez drugi wątek.
+
+3.Jak zapobiec deadlockowi?
+
+Najprostsza metoda:
+
+zawsze blokować zasoby w tej samej kolejności.
+
+Poprawiona wersja:
+
+def thread2():
+    with lock1:
+        with lock2:
+            print("Wątek 2 działa bez deadlocka")
+
+
+Oba wątki blokują najpierw lock1, potem lock2 → brak zakleszczenia.

@@ -1,0 +1,53 @@
+1. W którym dokładnie momencie występuje race condition?
+
+Race condition występuje między:
+
+while tasks:
+
+
+a
+
+task = tasks.pop(0)
+
+
+Sprawdzenie, czy lista nie jest pusta, oraz pobranie elementu nie są wykonywane jako jedna operacja atomowa.
+
+2. Co się stanie, jeśli oba wątki sprawdzą while tasks: w tym samym czasie, gdy na liście zostaje tylko jedno zadanie?
+
+Oba wątki zobaczą, że lista nie jest pusta.
+
+Następnie:
+
+pierwszy wątek wykona pop(0) i pobierze ostatnie zadanie,
+
+drugi wątek również spróbuje wykonać pop(0),
+
+lista będzie już pusta → zostanie rzucony IndexError.
+
+To klasyczny przykład warunku wyścigu.
+
+3. Jaką operację na liście tasks trzeba chronić blokadą?
+
+Chronić należy całą operację sprawdzenia i pobrania zadania, czyli logicznie:
+
+sprawdzenie czy lista nie jest pusta
+
+tasks.pop(0)
+
+Te dwie czynności muszą stanowić jedną sekcję krytyczną.
+
+4. Czy blokada powinna być wewnątrz pętli while, czy na zewnątrz?
+
+Blokada powinna być wewnątrz pętli, ale obejmować tylko sekcję krytyczną.
+
+Nie należy blokować całej pętli, ponieważ:
+
+jeden wątek zablokowałby drugi aż do przetworzenia wszystkich zadań,
+
+utracilibyśmy współbieżność.
+
+Poprawne rozwiązanie:
+
+krótka sekcja krytyczna (pobranie zadania),
+
+praca nad zadaniem poza blokadą.
